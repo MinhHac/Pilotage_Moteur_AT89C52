@@ -1,0 +1,29 @@
+C51 COMPILER V9.01   VARIABLES_GLOBALES                                                    04/30/2019 14:07:55 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE VARIABLES_GLOBALES
+OBJECT MODULE PLACED IN variables_globales.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE variables_globales.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          //#include "variables_globales.h"
+   3          
+   4           unsigned int  scheduler_ct, val=6;
+   5           bit new_task=0;
+   6           unsigned int  etat_phase ;
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

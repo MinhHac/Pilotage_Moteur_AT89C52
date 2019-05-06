@@ -1,0 +1,61 @@
+C51 COMPILER V9.01   INITDEVICE                                                            04/30/2019 14:07:55 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE INITDEVICE
+OBJECT MODULE PLACED IN InitDevice.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE InitDevice.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "InitDevice.h"
+   3          
+   4          void initDevice(void){
+   5   1           permetion_interrupt();
+   6   1               configuration_timer0();
+   7   1               configuration_timer1();
+   8   1      }
+   9          
+  10          void configuration_timer0(void){
+  11   1         //CKCON =   mac dinh chia cho 12
+  12   1         TMOD &= ~0x0F;  // cac bits poids faible cua timer0 o muc 0
+  13   1         TMOD |= 0x01;        // mode 1 => 01 cho 2 bits cuoi
+  14   1         // TL0, TH0
+  15   1         TL0= 0x63;
+  16   1         TH0 = 0xC5;
+  17   1         TR0 = 1;
+  18   1      }
+  19          
+  20          void configuration_timer1(void){
+  21   1         //CKCON =   mac dinh chia cho 12
+  22   1              // khoi tao UART
+  23   1              SM1 = 1;     //  UART en mode 1
+  24   1              SM0 = 0;     // 
+  25   1              TMOD &= 0x0F; // xoa cac bit poids fort giu lai bits poids faible
+  26   1              TMOD |= 0x20; // 8 bits auto reload
+  27   1      
+  28   1              TH1 = 0xEA;     ;       //tinh toan de co toc do baud la 2400
+  29   1              TR1 = 1;         // lancer timer1
+  30   1              SBUF = 'C';
+  31   1              SBUF = '5';
+  32   1      }
+  33          void permetion_interrupt(void){
+  34   1              // interruption
+  35   1              IT0 =1;
+  36   1              ET0 =1;       // ET2 = 1 interruption du Timer2
+  37   1              EA = 1;       // EA =1 permetre l'interruption
+  38   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     53    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
