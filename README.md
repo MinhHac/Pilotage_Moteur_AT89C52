@@ -8,7 +8,7 @@ Les signaux de commande des phases en sorties du MCU doivent varier périodiquem
 
 * Langage utilisés:  C
 
-* Résumé
+* Résumé :
 
  Etape 1 : Gestionnaire de tâche et timer 0.
  
