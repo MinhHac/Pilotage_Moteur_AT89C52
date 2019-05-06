@@ -1,7 +1,0 @@
-"main.obj",
-"Interrupts.obj",
-"InitDevice.obj",
-"variables_globales.obj",
-"moteur.obj" 
-TO "Projet_1" 
-RAMSIZE(256) 
