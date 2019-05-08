@@ -8,6 +8,7 @@
 void InitMoteur(void);
 void ChangePhase(void);
 void demarage_arret_Moteur(void);
-
+int Char_to_Decimal(char c);
+void InitMoteur_Base100us(void);
 
 #endif 

@@ -19,10 +19,11 @@ void InitMoteur(void){  // configurer le timer 2
 	ET2=1;          //Timer 2 Interrupt Enable
 }
 
+
 void ChangePhase(void){
      switch(etat_phase) {
 		case 0: {
-		        TEST =!TEST;
+		        //TEST =!TEST;
 		        Phase1;
 			
 				break;
@@ -50,4 +51,30 @@ void ChangePhase(void){
 
 void demarage_arret_Moteur(void){
    	 TR2 = !TR2;
+}
+int Char_to_Decimal(char c){
+   return((int)c-48);  
+}
+
+void InitMoteur_Base100us(void){  // configurer le timer 2
+
+// co mot cai co, neu init roi thi khoi can init nua
+// cai dat Timer 2
+
+	T2MOD = 0x00;
+	          //	DCEN =0 et T2OE =0
+	T2CON = 0x00;	  // mode 2 -16bits auto reload
+	RCAP2L =0x59;
+	RCAP2H =0xFF;
+
+	TR2 = 1;        // lancer timer2 = moteur tourne au demarrage du microcontroleur
+	ET2=1;          //Timer 2 Interrupt Enable
+}
+void ChangePhase2(void){
+	if(etat_phase==0){ Phase1;}
+	else if(etat_phase==val){ Phase2;}
+	else if(etat_phase==2*val){ Phase3;}
+	else if(etat_phase==3*val){ Phase4;}
+    etat_phase++; 
+	if(etat_phase==4*val) etat_phase =0;
 }
