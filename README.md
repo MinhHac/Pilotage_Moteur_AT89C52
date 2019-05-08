@@ -31,6 +31,7 @@ Les signaux de commande des phases en sorties du MCU doivent varier périodiquem
  Cette même tâche devra examiner l’état d’un bouton poussoir connecté sur la broche P0.2.L’activation du bouton poussoir devra démarrer le moteur s’il est à l’arrêt ou le stopper si le moteur est en rotation.
 
  Etape 4 : Pilotage de la vitesse du moteur à partir d’un terminal série.
+ 
      Un terminal de communication est connecté au microcontrôleur par la liaison série via le module UART0. Dans cette application le terminal permettra à un opérateur de transmettre un octet dont la valeur en décimal, notée x modifiera la vitesse de rotation du moteur. T/4 devra correspondre à x*100 μs
 
   
