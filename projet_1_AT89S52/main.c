@@ -35,15 +35,15 @@ void scheduler(void){
 				InitMoteur_Base100us(); 
 		    }
 		
-		 if(BUTTON != 0){
-	    		etat_button = 1;
-	     } else if(BUTTON == 0 && etat_button != 0){
+		    if(BUTTON == 0 && etat_button != 0){
 				demarage_arret_Moteur();
 				//TEST =!TEST;
-	    	    etat_button = 0;
-	     }
+	    	                etat_button = 0;
+	            }else if(BUTTON != 0){
+	    		        etat_button = 1;
+	           }  
 		 
-			break;
+			 break;
 		}
 		default: break;
 	}
